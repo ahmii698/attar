@@ -96,7 +96,7 @@ function BlogsPage() {
   return (
     <div className="blogs-page">
       <div className="shop-header">
-        <h1>Our Blogs 📝</h1>
+        <h1>Our Blogs </h1>
         <p>Fragrance insights, tips, and stories from Royal Attar</p>
       </div>
       

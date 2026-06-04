@@ -13,13 +13,13 @@
   margin: 0 auto;
 }
 
-/* ========== FOOTER LOGO STYLES - SAME AS NAVBAR ========== */
+/* ========== FOOTER LOGO STYLES ========== */
 .footer-logo-wrapper {
   margin-bottom: 20px;
 }
 
 .footer-logo-img {
-  height: 120px;        /* SAME AS NAVBAR - 120px */
+  height: 120px;
   width: auto;
   max-width: 240px;
   object-fit: contain;
@@ -28,12 +28,6 @@
 
 .footer-logo-img:hover {
   transform: scale(1.03);
-}
-
-.footer-col p {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 13px;
-  line-height: 1.6;
 }
 
 .social-links {
@@ -67,10 +61,14 @@
   font-size: 16px;
   margin-bottom: 20px;
   font-weight: 600;
+  position: relative;
+  display: inline-block;
 }
 
 .footer-col ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-col li {
@@ -82,10 +80,12 @@
   text-decoration: none;
   font-size: 13px;
   transition: 0.3s;
+  display: inline-block;
 }
 
 .footer-col a:hover {
   color: #d4af37;
+  transform: translateX(3px);
 }
 
 .contact-info li {
@@ -100,6 +100,7 @@
 .contact-info li svg {
   color: #d4af37;
   font-size: 14px;
+  min-width: 16px;
 }
 
 .footer-bottom {
@@ -110,44 +111,178 @@
   font-size: 12px;
 }
 
-/* Responsive - Same sizes as navbar */
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Tablet (768px - 992px) */
 @media (max-width: 992px) {
   .footer {
     padding: 40px 30px 20px;
   }
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 35px;
   }
   .footer-logo-img {
-    height: 90px;        /* SAME AS NAVBAR */
+    height: 90px;
   }
 }
 
+/* Mobile (up to 768px) - IMPROVED */
 @media (max-width: 768px) {
   .footer {
     padding: 40px 20px 20px;
   }
+  
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
   }
+  
+  /* Logo aur social center */
+  .footer-col:first-child {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo-wrapper {
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo-img {
+    height: 70px;
+    margin: 0 auto;
+  }
+  
   .social-links {
     justify-content: center;
+    margin-top: 15px;
   }
+  
+  /* Headings center aur stylish */
   .footer-col {
     text-align: center;
   }
+  
+  .footer-col h4 {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 15px;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 8px;
+  }
+  
+  /* Lists center */
+  .footer-col ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-col li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-col a {
+    font-size: 13px;
+  }
+  
+  .footer-col a:hover {
+    transform: translateX(0);
+  }
+  
+  /* Contact info center */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .contact-info li {
     justify-content: center;
+    margin-bottom: 10px;
   }
-  .footer-logo-img {
-    height: 75px;        /* SAME AS NAVBAR */
+  
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }
 
+/* Mobile Small (up to 480px) */
 @media (max-width: 480px) {
+  .footer {
+    padding: 30px 15px 20px;
+  }
+  
+  .footer-container {
+    gap: 25px;
+  }
+  
   .footer-logo-img {
-    height: 65px;        /* SAME AS NAVBAR */
+    height: 60px;
+  }
+  
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  
+  .footer-col h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .footer-col li {
+    margin-bottom: 6px;
+  }
+  
+  .footer-col a {
+    font-size: 12px;
+  }
+  
+  .contact-info li {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .contact-info li svg {
+    font-size: 12px;
+  }
+  
+  .footer-bottom p {
+    font-size: 11px;
+  }
+}
+
+/* Extra Small (up to 360px) */
+@media (max-width: 360px) {
+  .footer {
+    padding: 25px 12px 15px;
+  }
+  
+  .footer-logo-img {
+    height: 50px;
+  }
+  
+  .social-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+  
+  .footer-col h4 {
+    font-size: 13px;
+  }
+  
+  .footer-col a {
+    font-size: 11px;
+  }
+  
+  .contact-info li {
+    font-size: 11px;
+    gap: 6px;
   }
 }

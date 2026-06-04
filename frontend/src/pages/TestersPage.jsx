@@ -71,7 +71,7 @@ function TestersPage() {
   return (
     <div className="shop-page">
       <div className="shop-header">
-        <h1>Tester Attars 🧪</h1>
+        <h1>Tester Attars </h1>
         <p>Authentic testers at best prices. Same quality, minimal packaging.</p>
       </div>
       <div className="products-section">
