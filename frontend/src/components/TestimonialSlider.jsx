@@ -71,8 +71,8 @@ function TestimonialSlider() {
   return (
     <div className="testimonial-slider">
       <div className="testimonial-slide">
-        <div className="quote-icon">“</div>
-        <p className="testimonial-text">"{currentTestimonial.review}"</p>
+        {/* REMOVED - quote icon <div className="quote-icon">“</div> */}
+        <p className="testimonial-text">{currentTestimonial.review}</p>
         <div className="testimonial-rating">
           {'★'.repeat(currentTestimonial.rating)}{'☆'.repeat(5 - currentTestimonial.rating)}
         </div>

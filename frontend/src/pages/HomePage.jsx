@@ -4,7 +4,7 @@ import ProductCard from '../components/ProductCard'
 import CategoryBanner from '../components/CategoryBanner'
 import FAQSection from '../components/FAQSection'
 import TestimonialSlider from '../components/TestimonialSlider'
-import ContactMapSection from '../components/ContactMapSection'
+import ContactPage from './ContactPage'  // <-- Changed: ContactMapSection se ContactPage kar diya
 import Newsletter from '../components/Newsletter'
 
 // Import your images
@@ -68,8 +68,8 @@ function HomePage() {
         <TestimonialSlider />
       </section>
       
-      {/* Contact + Map Section - NEW */}
-      <ContactMapSection />
+      {/* Contact Section - Using ContactPage component */}
+      <ContactPage />
       
       <Newsletter />
     </div>

@@ -30,7 +30,7 @@
   transform: scale(1.03);
 }
 
-/* ========== SOCIAL LINKS - NO CIRCLE, SIRF ICON ========== */
+/* ========== SOCIAL LINKS - WHITE ICONS (No Golden) ========== */
 .social-links {
   display: flex;
   gap: 20px;
@@ -40,16 +40,15 @@
 .social-icon {
   text-decoration: none;
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;  /* White color - Golden nahi */
   transition: 0.3s;
-  /* NO background, NO border-radius, NO circle */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .social-icon:hover {
-  color: #d4af37;
+  color: #d4af37;  /* Sirf hover pe golden */
   transform: translateY(-3px);
 }
 
@@ -85,6 +84,7 @@
   transform: translateX(3px);
 }
 
+/* ========== CONTACT INFO ICONS - WHITE (No Golden) ========== */
 .contact-info li {
   color: rgba(255, 255, 255, 0.5);
   font-size: 13px;
@@ -95,9 +95,14 @@
 }
 
 .contact-info li svg {
-  color: #d4af37;
+  color: #ffffff;  /* White color - Golden nahi */
   font-size: 14px;
   min-width: 16px;
+  transition: 0.3s;
+}
+
+.contact-info li:hover svg {
+  color: #d4af37;  /* Sirf hover pe golden */
 }
 
 .footer-bottom {
@@ -135,7 +140,6 @@
     gap: 30px;
   }
   
-  /* Logo aur social center */
   .footer-col:first-child {
     text-align: center;
     padding-bottom: 10px;
@@ -157,7 +161,6 @@
     margin-top: 15px;
   }
   
-  /* Headings center */
   .footer-col {
     text-align: center;
   }
@@ -170,7 +173,6 @@
     padding-bottom: 8px;
   }
   
-  /* Lists center */
   .footer-col ul {
     display: flex;
     flex-direction: column;
@@ -189,7 +191,6 @@
     transform: translateX(0);
   }
   
-  /* Contact info center */
   .contact-info {
     display: flex;
     flex-direction: column;

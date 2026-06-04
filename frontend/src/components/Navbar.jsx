@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { FiSearch, FiUser, FiShoppingCart, FiMenu, FiX, FiHeart, FiLogOut } from 'react-icons/fi'
+import { 
+  FiSearch, FiUser, FiShoppingCart, FiMenu, FiX, FiHeart, FiLogOut,
+  FiGrid, FiWind, FiSun, FiTag, FiTrendingUp, FiZap, FiStar, FiGift
+} from 'react-icons/fi'
 import { useCart } from '../contexts/CartContext'
 import { useAuth } from '../contexts/AuthContext'
 import raLogo from '../assets/ra.png'
@@ -113,25 +116,25 @@ function Navbar() {
                 <div className="mega-menu-inner">
                   <div className="mega-grid">
                     <div className="mega-col">
-                      <h4>👔 MEN</h4>
+                      <h4><FiGrid /> MEN</h4>
                       <ul>
                         {categories.men.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
                       </ul>
                     </div>
                     <div className="mega-col">
-                      <h4>💄 WOMEN</h4>
+                      <h4><FiWind /> WOMEN</h4>
                       <ul>
                         {categories.women.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
                       </ul>
                     </div>
                     <div className="mega-col">
-                      <h4>🌸 SEASON</h4>
+                      <h4><FiSun /> SEASON</h4>
                       <ul>
                         {categories.season.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
                       </ul>
                     </div>
                     <div className="mega-col">
-                      <h4>💰 TYPE</h4>
+                      <h4><FiTag /> TYPE</h4>
                       <ul>
                         {categories.type.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
                       </ul>
@@ -140,7 +143,7 @@ function Navbar() {
                   
                   <div className="mega-row">
                     <div className="mega-half">
-                      <h4>🔥 TOP SELLERS</h4>
+                      <h4><FiTrendingUp /> TOP SELLERS</h4>
                       <div className="product-grid">
                         {categories.topSellers.map(item => (
                           <div key={item} className="product-chip" onClick={closeMegaMenu}>
@@ -154,7 +157,7 @@ function Navbar() {
                       </div>
                     </div>
                     <div className="mega-half">
-                      <h4>✨ NEW ARRIVALS</h4>
+                      <h4><FiZap /> NEW ARRIVALS</h4>
                       <div className="product-grid">
                         {categories.newArrivals.map(item => (
                           <div key={item} className="product-chip" onClick={closeMegaMenu}>
@@ -166,10 +169,10 @@ function Navbar() {
                   </div>
                   
                   <div className="mega-footer">
-                    <div className="featured-item" onClick={closeMegaMenu}>🔥 Best Selling Oud Collection</div>
-                    <div className="featured-item" onClick={closeMegaMenu}>✨ New Arrivals Summer 2024</div>
-                    <div className="featured-item" onClick={closeMegaMenu}>🎁 Buy 2 Get 1 Free - Limited Time</div>
-                    <div className="featured-item" onClick={closeMegaMenu}>⭐ Black & Silver Platinum - Rs.2,100</div>
+                    <div className="featured-item" onClick={closeMegaMenu}><FiStar /> Best Selling Oud Collection</div>
+                    <div className="featured-item" onClick={closeMegaMenu}><FiZap /> New Arrivals Summer 2024</div>
+                    <div className="featured-item" onClick={closeMegaMenu}><FiGift /> Buy 2 Get 1 Free - Limited Time</div>
+                    <div className="featured-item" onClick={closeMegaMenu}><FiStar /> Black & Silver Platinum - Rs.2,100</div>
                   </div>
                 </div>
               </div>
