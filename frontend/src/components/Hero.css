@@ -117,7 +117,7 @@
   gap: 15px;
 }
 
-/* Right Side - Bottle Image */
+/* Right Side - Bottle Image WITH FLOAT EFFECT */
 .right-content {
   flex: 0.9;
   display: flex;
@@ -132,7 +132,24 @@
   align-items: center;
 }
 
-/* ========== RESPONSIVE STYLES ========== */
+/* FLOATING ANIMATION - WAPAS LAYA */
+.bottle-img {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.4));
+  animation: gentleFloat 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gentleFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ========== RESPONSIVE STYLES (WITH FLOAT INTACT) ========== */
 
 /* Tablet Landscape (1024px - 1200px) */
 @media (max-width: 1200px) {
@@ -158,6 +175,13 @@
   
   .stat h3 {
     font-size: 24px;
+  }
+  
+  /* Float thora slow on tablet */
+  @keyframes gentleFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
   }
 }
 
@@ -195,6 +219,18 @@
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
+  }
+  
+  /* Float effect on tablet */
+  .bottle-img {
+    max-width: 450px;
+    animation: gentleFloatTablet 3s ease-in-out infinite;
+  }
+  
+  @keyframes gentleFloatTablet {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
   }
 }
 
@@ -234,6 +270,17 @@
   .right-content {
     max-width: 400px;
   }
+  
+  .bottle-img {
+    max-width: 350px;
+    animation: gentleFloatMobile 3s ease-in-out infinite;
+  }
+  
+  @keyframes gentleFloatMobile {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
 }
 
 /* Mobile Medium (480px - 600px) */
@@ -248,7 +295,6 @@
   
   .badge {
     padding: 4px 12px;
-    font-size: 12px;
   }
   
   .badge span {
@@ -281,6 +327,17 @@
   
   .right-content {
     max-width: 320px;
+  }
+  
+  .bottle-img {
+    max-width: 280px;
+    animation: gentleFloatMobileSmall 3s ease-in-out infinite;
+  }
+  
+  @keyframes gentleFloatMobileSmall {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
   }
 }
 
@@ -315,6 +372,11 @@
   .right-content {
     max-width: 280px;
   }
+  
+  .bottle-img {
+    max-width: 250px;
+    animation: gentleFloatMobileSmall 3s ease-in-out infinite;
+  }
 }
 
 /* Extra Small (up to 360px) */
@@ -346,5 +408,16 @@
   
   .right-content {
     max-width: 250px;
+  }
+  
+  .bottle-img {
+    max-width: 220px;
+    animation: gentleFloatExtraSmall 3s ease-in-out infinite;
+  }
+  
+  @keyframes gentleFloatExtraSmall {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0px); }
   }
 }
