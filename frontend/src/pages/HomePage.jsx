@@ -4,11 +4,12 @@ import ProductCard from '../components/ProductCard'
 import CategoryBanner from '../components/CategoryBanner'
 import FAQSection from '../components/FAQSection'
 import TestimonialSlider from '../components/TestimonialSlider'
+import ContactMapSection from '../components/ContactMapSection'
 import Newsletter from '../components/Newsletter'
 
 // Import your images
-import westernAttarImg from '../assets/western-attar.jpg'  // apni image ka path dalo
-import easternAttarImg from '../assets/eastern-attar.jpg'  // apni image ka path dalo
+import westernAttarImg from '../assets/western-attar.jpg'
+import easternAttarImg from '../assets/eastern-attar.jpg'
 
 const topSellers = [
   { id: 1, name: "Black & Silver Platinum", price: "Rs. 2,100", rating: 1330 },
@@ -39,12 +40,12 @@ function HomePage() {
         </div>
       </section>
       
-      {/* Banner 1 - Western Attars (Apni image ke saath) */}
+      {/* Banner 1 - Western Attars */}
       <CategoryBanner 
         title="Western" 
         subtitle="Attars"
         description="Experience the blend of modern luxury with traditional craftsmanship. Perfect for everyday elegance."
-        image={westernAttarImg}  // Apni image yahan dalo
+        image={westernAttarImg}
         direction="left"
       />
       
@@ -58,8 +59,6 @@ function HomePage() {
         </div>
       </section>
       
-    
-      
       {/* FAQ Section */}
       <FAQSection />
       
@@ -68,6 +67,9 @@ function HomePage() {
         <SectionHeading title="What Our Customers Say" subtitle="Trusted by thousands" />
         <TestimonialSlider />
       </section>
+      
+      {/* Contact + Map Section - NEW */}
+      <ContactMapSection />
       
       <Newsletter />
     </div>

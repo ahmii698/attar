@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { FaHeart, FaRegHeart, FaShoppingCart } from 'react-icons/fa'
+import { useCart } from '../contexts/CartContext'
 import at1 from '../assets/at1.jpg'
 import at2 from '../assets/at2.jpg'
 import at3 from '../assets/at3.jpg'
@@ -9,7 +12,13 @@ import at8 from '../assets/at8.jpg'
 import at9 from '../assets/at9.jpg'
 import at10 from '../assets/at10.jpg'
 
-function ProductCard({ name, price, rating }) {
+function ProductCard({ id, name, price, rating, priceNum }) {
+  const { addToCart, addToWishlist, removeFromWishlist, wishlistItems } = useCart()
+  
+  const [isWishlisted, setIsWishlisted] = useState(
+    wishlistItems.some(item => item.id === id)
+  )
+  
   // Local images mapping
   const getImageUrl = (name) => {
     const images = {
@@ -27,10 +36,32 @@ function ProductCard({ name, price, rating }) {
     return images[name] || at1
   }
   
+  const product = {
+    id,
+    name,
+    price,
+    priceNum: priceNum || parseInt(price.replace(/[^0-9]/g, '')),
+    rating,
+    image: getImageUrl(name)
+  }
+  
+  const handleWishlist = () => {
+    if (isWishlisted) {
+      removeFromWishlist(id)
+      setIsWishlisted(false)
+    } else {
+      addToWishlist(product)
+      setIsWishlisted(true)
+    }
+  }
+  
   return (
     <div className="product-card">
       <div className="product-image">
         <img src={getImageUrl(name)} alt={name} />
+        <button className="wishlist-btn" onClick={handleWishlist}>
+          {isWishlisted ? <FaHeart color="#d4af37" /> : <FaRegHeart />}
+        </button>
       </div>
       <div className="product-info">
         <h4>{name}</h4>
@@ -41,7 +72,9 @@ function ProductCard({ name, price, rating }) {
             <span className="rating-count">({rating})</span>
           </div>
         </div>
-        <button className="add-to-cart">Add to Cart</button>
+        <button className="add-to-cart" onClick={() => addToCart(product)}>
+          <FaShoppingCart /> Add to Cart
+        </button>
       </div>
     </div>
   )

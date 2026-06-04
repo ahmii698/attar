@@ -1,0 +1,148 @@
+.hero-wrapper {
+  min-height: calc(100vh - 65px);
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+}
+
+.left-content {
+  flex: 1;
+  max-width: 550px;
+  margin-left: 100px;
+  margin-right: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(212,175,55,0.25);
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 25px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 8px #d4af37;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.main-title {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+  padding: 15px 0;
+  border-top: 1px solid rgba(212,175,55,0.15);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 28px;
+  color: #d4af37;
+  margin-bottom: 4px;
+}
+
+.stat p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Right Side - Bottle Image (Force Height) */
+.right-content {
+  flex: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 450px;
+  margin-right: 40px;
+}
+
+.bottle-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottle-img {
+  width: 100%;
+  max-width: 750px;
+  min-height: 500px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.4));
+  animation: gentleFloat 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gentleFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+.loader-gold {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.gold-ring {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  border-top: 2px solid #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import footerLogo from '../assets/ra.png'   // <---- YAHAN IMPORT KARO
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-col">
-          <h3 className="footer-logo">
-            <span className="gold">Royal</span> Attar
-          </h3>
-          <p>Premium quality attars since 1985. Handcrafted with ancient techniques and pure natural ingredients.</p>
+          <div className="footer-logo-wrapper">
+            <img src={footerLogo} alt="Royal Attar" className="footer-logo-img" />
+          </div>
+      
           <div className="social-links">
             <a href="#" className="social-icon"><FaFacebookF /></a>
             <a href="#" className="social-icon"><FaInstagram /></a>

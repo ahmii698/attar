@@ -28,8 +28,10 @@ function BottleImage() {
         style={{ 
           display: imageLoaded ? 'block' : 'none',
           width: '100%',
-          maxWidth: '550px',
+          maxWidth: '750px',
+          minHeight: '500px',
           height: 'auto',
+          objectFit: 'contain',
           margin: '0 auto'
         }}
       />
