@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { 
   FiSearch, FiUser, FiShoppingCart, FiMenu, FiX, FiHeart, FiLogOut,
-  FiGrid, FiWind, FiSun, FiTag, FiTrendingUp, FiZap, FiStar, FiGift
+  FiGrid, FiWind, FiTag, FiStar, FiUsers
 } from 'react-icons/fi'
 import { useCart } from '../contexts/CartContext'
 import { useAuth } from '../contexts/AuthContext'
@@ -20,37 +20,37 @@ function Navbar() {
   const cartCount = getCartCount()
   const wishlistCount = wishlistItems.length
   
+  // Categories
   const categories = {
-    men: [
-      'Oud Collection', 'Woody Fragrances', 'Spicy Attars', 
-      'Premium Men', 'Best Sellers Men', 'Black & Silver Platinum',
-      'Ameer Al Oud', 'Sultan E Ameer', 'The Great Oud'
+    premium: [
+      { name: 'Black & Silver Platinum', filter: 'Black & Silver Platinum' },
+      { name: 'Royal Oud', filter: 'Royal Oud' },
+      { name: 'Musk Al Mahal', filter: 'Musk Al Mahal' },
+      { name: 'Sultan E Ameer', filter: 'Sultan E Ameer' },
+      { name: 'Oud Al Aswad', filter: 'Oud Al Aswad' }
     ],
-    women: [
-      'Floral Attars', 'Rose Collection', 'Sweet Fragrances', 
-      'Premium Women', 'Best Sellers Women', 'Oudh Al Ward',
-      'Musk Al Mahal', 'Ghilaf E Kaba', 'Hajar E Aswad'
+    western: [
+      { name: 'Winter Collection 2024', filter: 'Winter Collection 2024' },
+      { name: 'Amber Rose', filter: 'Amber Rose' },
+      { name: 'Silver & White', filter: 'Silver & White' },
+      { name: 'Floral Dream', filter: 'Floral Dream' }
     ],
-    season: [
-      'Summer Fresh Attars', 'Summer Citrus Collection', 'Summer Light Fragrances', 'Summer Specials',
-      'Winter Warm Oud', 'Winter Amber Collection', 'Winter Rich Attars', 'Winter Specials',
-      'Spring Floral Fresh', 'Spring Garden Collection', 'Spring Breeze', 'Spring Light Oud',
-      'Autumn Earthy Notes', 'Autumn Warm Spices', 'Autumn Collection', 'Autumn Rich Woody'
+    eastern: [
+      { name: 'Ameer Al Oud', filter: 'Ameer Al Oud' },
+      { name: 'Oudh Al Ward', filter: 'Oudh Al Ward' },
+      { name: 'Eastern Oud', filter: 'Eastern Oud' }
     ],
-    type: [
-      'Royal Collection', 'Gold Edition', 'Platinum Range', 'Limited Edition', 'Black & Gold',
-      'Everyday Attars', 'Budget Friendly', 'Value Pack', 'Starter Collection', 'Silver & White',
-      'Light Attars', 'Mild Fragrances', 'Daily Wear', 'Subtle Oud',
-      'Intense Oud', 'Powerful Attars', 'Long Lasting', 'Concentrated'
-    ],
-    topSellers: [
-      'Black & Silver Platinum', 'Ameer Al Oud', 'Oud Al Aswad', 
-      'Sultan E Ameer', 'Royal Oud', '★★★★★ (1330)'
-    ],
-    newArrivals: [
-      'Winter Collection 2024', 'Spring Fresh', 'Oudh Al Ward', 
-      'Silver & White', 'Musk Al Mahal', 'Black & Gold'
+    gender: [
+      { name: 'Male', filter: 'Male' },
+      { name: 'Female', filter: 'Female' },
+      { name: 'Unisex', filter: 'Unisex' }
     ]
+  }
+  
+  // Function to handle category click and navigate with filter
+  const handleCategoryClick = (filterValue) => {
+    closeMegaMenu()
+    navigate(`/shop?category=${encodeURIComponent(filterValue)}`)
   }
   
   const handleMouseEnter = () => {
@@ -116,63 +116,45 @@ function Navbar() {
                 <div className="mega-menu-inner">
                   <div className="mega-grid">
                     <div className="mega-col">
-                      <h4><FiGrid /> MEN</h4>
+                      <h4><FiStar /> PREMIUM</h4>
                       <ul>
-                        {categories.men.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
-                      </ul>
-                    </div>
-                    <div className="mega-col">
-                      <h4><FiWind /> WOMEN</h4>
-                      <ul>
-                        {categories.women.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
-                      </ul>
-                    </div>
-                    <div className="mega-col">
-                      <h4><FiSun /> SEASON</h4>
-                      <ul>
-                        {categories.season.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
-                      </ul>
-                    </div>
-                    <div className="mega-col">
-                      <h4><FiTag /> TYPE</h4>
-                      <ul>
-                        {categories.type.map(item => <li key={item}><Link to="/shop" onClick={closeMegaMenu}>{item}</Link></li>)}
-                      </ul>
-                    </div>
-                  </div>
-                  
-                  <div className="mega-row">
-                    <div className="mega-half">
-                      <h4><FiTrendingUp /> TOP SELLERS</h4>
-                      <div className="product-grid">
-                        {categories.topSellers.map(item => (
-                          <div key={item} className="product-chip" onClick={closeMegaMenu}>
-                            {item.includes('★★★★★') ? (
-                              <span className="rating-product">★★★★★ {item.replace('★★★★★', '')}</span>
-                            ) : (
-                              <Link to="/shop">{item}</Link>
-                            )}
-                          </div>
+                        {categories.premium.map(item => (
+                          <li key={item.name}>
+                            <a onClick={() => handleCategoryClick(item.filter)}>{item.name}</a>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
-                    <div className="mega-half">
-                      <h4><FiZap /> NEW ARRIVALS</h4>
-                      <div className="product-grid">
-                        {categories.newArrivals.map(item => (
-                          <div key={item} className="product-chip" onClick={closeMegaMenu}>
-                            <Link to="/shop">{item}</Link>
-                          </div>
+                    <div className="mega-col">
+                      <h4><FiWind /> WESTERN</h4>
+                      <ul>
+                        {categories.western.map(item => (
+                          <li key={item.name}>
+                            <a onClick={() => handleCategoryClick(item.filter)}>{item.name}</a>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
-                  </div>
-                  
-                  <div className="mega-footer">
-                    <div className="featured-item" onClick={closeMegaMenu}><FiStar /> Best Selling Oud Collection</div>
-                    <div className="featured-item" onClick={closeMegaMenu}><FiZap /> New Arrivals Summer 2024</div>
-                    <div className="featured-item" onClick={closeMegaMenu}><FiGift /> Buy 2 Get 1 Free - Limited Time</div>
-                    <div className="featured-item" onClick={closeMegaMenu}><FiStar /> Black & Silver Platinum - Rs.2,100</div>
+                    <div className="mega-col">
+                      <h4><FiGrid /> EASTERN</h4>
+                      <ul>
+                        {categories.eastern.map(item => (
+                          <li key={item.name}>
+                            <a onClick={() => handleCategoryClick(item.filter)}>{item.name}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mega-col">
+                      <h4><FiUsers /> GENDER</h4>
+                      <ul>
+                        {categories.gender.map(item => (
+                          <li key={item.name}>
+                            <a onClick={() => handleCategoryClick(item.filter)}>{item.name}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

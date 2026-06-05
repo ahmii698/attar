@@ -30,11 +30,10 @@ const blogs = [
       <p>There are several types of oud, each with its own unique scent profile. Some are woody and smoky, while others have sweet or fruity notes. The quality and price of oud depend on factors such as the age of the tree, the concentration of resin, and the distillation method used.</p>
     `,
     image: at1,
-    category: "Education",
+    category: "Oud",
     date: "March 15, 2024",
     readTime: "5 min read",
     author: "Ahmed Raza",
-    authorImg: "https://randomuser.me/api/portraits/men/1.jpg",
     tags: ["Oud", "History", "Luxury"]
   },
   {
@@ -56,12 +55,11 @@ const blogs = [
       <p>Fall is perfect for spicy and earthy fragrances. Cinnamon, clove, patchouli, and vetiver create warm and inviting scents that complement the season's mood.</p>
     `,
     image: at2,
-    category: "Guide",
+    category: "Attar Guide",
     date: "March 10, 2024",
     readTime: "4 min read",
     author: "Sarah Khan",
-    authorImg: "https://randomuser.me/api/portraits/women/2.jpg",
-    tags: ["Guide", "Seasonal", "Tips"]
+    tags: ["Attar", "Seasonal", "Guide"]
   },
   {
     id: 3,
@@ -79,12 +77,11 @@ const blogs = [
       <p>The main difference is that oud is a specific ingredient (agarwood resin), while attar is a finished product that can contain oud along with other ingredients. Oud attar is a type of attar that features oud as a prominent note.</p>
     `,
     image: at3,
-    category: "Education",
+    category: "Oud",
     date: "March 5, 2024",
     readTime: "3 min read",
     author: "Omar Farooq",
-    authorImg: "https://randomuser.me/api/portraits/men/3.jpg",
-    tags: ["Oud", "Attar", "Education"]
+    tags: ["Oud", "Attar", "Comparison"]
   },
   {
     id: 4,
@@ -106,7 +103,6 @@ const blogs = [
     date: "February 28, 2024",
     readTime: "6 min read",
     author: "Fatima Al Mansouri",
-    authorImg: "https://randomuser.me/api/portraits/women/4.jpg",
     tags: ["Best Sellers", "Popular", "2024"]
   },
   {
@@ -125,11 +121,10 @@ const blogs = [
       <p>Apply an unscented moisturizer before your attar. The oil will adhere better to hydrated skin and last much longer.</p>
     `,
     image: at5,
-    category: "Tips",
+    category: "Tips & Tricks",
     date: "February 20, 2024",
     readTime: "4 min read",
     author: "Bilal Ahmed",
-    authorImg: "https://randomuser.me/api/portraits/men/5.jpg",
     tags: ["Tips", "Application", "Longevity"]
   },
   {
@@ -148,11 +143,10 @@ const blogs = [
       <p>Once distilled, our attars are aged in glass or copper vessels for months or even years. This aging allows the different notes to harmonize and develop depth.</p>
     `,
     image: at6,
-    category: "Behind the Scenes",
+    category: "Craftsmanship",
     date: "February 15, 2024",
     readTime: "7 min read",
     author: "Ahmed Raza",
-    authorImg: "https://randomuser.me/api/portraits/men/1.jpg",
     tags: ["Process", "Traditional", "Craftsmanship"]
   },
 ]
@@ -202,7 +196,7 @@ function BlogDetailPage() {
         
         <div className="blog-detail-image">
           <img src={blog.image} alt={blog.title} />
-          <span className="blog-detail-category">{blog.category}</span>
+          {/* CATEGORY TAG REMOVED - No badge on image */}
         </div>
         
         <div className="blog-detail-info">
@@ -212,12 +206,9 @@ function BlogDetailPage() {
             <span>⏱️ {blog.readTime}</span>
           </div>
           
-          <div className="blog-author-info">
-            <img src={blog.authorImg} alt={blog.author} className="author-avatar" />
-            <div className="author-details">
-              <span className="author-name">By {blog.author}</span>
-              <span className="author-title">Luxury Fragrance Expert</span>
-            </div>
+          {/* AUTHOR IMAGE REMOVED - Sirf naam */}
+          <div className="blog-author-name">
+            <span className="author-name">By {blog.author}</span>
           </div>
           
           <div className="blog-detail-tags">
@@ -252,7 +243,6 @@ function BlogDetailPage() {
               <Link to={`/blog/${related.id}`} key={related.id} className="related-post-card">
                 <img src={related.image} alt={related.title} />
                 <div className="related-post-info">
-                  <span className="related-category">{related.category}</span>
                   <h4>{related.title}</h4>
                   <p>{related.date}</p>
                 </div>

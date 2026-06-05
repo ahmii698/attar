@@ -1,6 +1,6 @@
 /* IMPORTANT: Body ya main content ke liye - Navbar ki height handle karne ke liye */
 body {
-  padding-top: 100px;  /* Navbar ki height ke hisaab se - yeh important hai! */
+  padding-top: 100px;
 }
 
 /* Ya phir agar specific container hai to uske liye */
@@ -268,7 +268,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .mega-col h4 {
@@ -293,78 +293,10 @@ body {
   text-decoration: none;
   font-size: 12px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .mega-col a:hover {
-  color: #d4af37;
-}
-
-.mega-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  margin-bottom: 20px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.mega-half h4 {
-  color: #d4af37;
-  font-size: 13px;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.product-chip {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  border-radius: 20px;
-  padding: 5px 12px;
-  font-size: 11px;
-}
-
-.product-chip a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-}
-
-.product-chip a:hover {
-  color: #d4af37;
-}
-
-.rating-product {
-  color: #d4af37;
-  font-size: 11px;
-}
-
-.mega-footer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.featured-item {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(212, 175, 55, 0.05);
-  padding: 8px 12px;
-  border-radius: 25px;
-  text-align: center;
-  transition: 0.3s;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.featured-item:hover {
-  background: rgba(212, 175, 55, 0.15);
   color: #d4af37;
 }
 
